@@ -25,7 +25,7 @@ class Plugin extends PluginBase
                     /* 
                     * Início do bloco de seguraça
                     */
-                    $validDomain = "localhost";
+                    $validDomain = "*";
                     $domain = Request::server('HTTP_HOST');
 
                     header('Access-Control-Allow-Origin: *');

@@ -28,7 +28,7 @@ class Plugin extends PluginBase
                     $validDomain = "localhost";
                     $domain = Request::server('HTTP_HOST');
 
-                    header('Access-Control-Allow-Origin: localhost');
+                    header('Access-Control-Allow-Origin: *');
                     header('Access-Control-Allow-Credentials: true');
 
                     //ActivationCode::sendActivationCode(post('email'));

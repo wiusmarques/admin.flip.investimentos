@@ -1,4 +1,4 @@
-# 1- Installation wizard for October
+## 1- Installation wizard for October
 
 The wizard installation is a recommended way to install October. It is simpler than the command-line installation and doesn't require any special skills.
 
@@ -9,15 +9,18 @@ The wizard installation is a recommended way to install October. It is simpler t
 1. Navigate to the install.php script in your web browser.
 1. Follow the installation instructions.
 
-# 2- Remove Folders
+## 2- Remove Folders
 
 Remove two folder before download this repositorie:
 
 1. config/
 2. plugins/
 
-# 3- Download this repository
-# 4- After configurantion database access on the instalation proccess do you need execute all migrations with command:
+## 3- Download this repository
+
+Use the git command to this task
+
+## 4- After configurantion database access on the instalation proccess do you need execute all migrations with command:
 
 `php artisan october:up`
 

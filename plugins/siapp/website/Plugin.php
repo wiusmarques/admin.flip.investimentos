@@ -3,6 +3,7 @@
 use System\Classes\PluginBase;
 use RainLab\User\Models\Settings as UserSettings;
 use siapp\Website\Models\ActivationCode;
+use siapp\Website\Classes\Mail;
 use Route;
 use Auth;
 use Event;
@@ -31,10 +32,11 @@ class Plugin extends PluginBase
                     header('Access-Control-Allow-Origin: *');
                     header('Access-Control-Allow-Credentials: true');
 
-                    //ActivationCode::sendActivationCode(post('email'));
-                    //return post('email');
-
+                    // ActivationCode::sendActivationCode(post('email'));
+                    // return post('email');
                     
+                    // $mail = new Mail();
+                    // return $mail->getValue();
                     
 
                     if ($validDomain != '*' && $validDomain != $domain) {
@@ -78,9 +80,7 @@ class Plugin extends PluginBase
                         'password' => $data['password'],
                         'password_confirmation' => $data['password_confirmation'],
                     ]);
-
                     
-
                     return $user;
                 });
                 

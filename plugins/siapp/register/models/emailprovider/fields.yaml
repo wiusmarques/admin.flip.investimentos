@@ -1,4 +1,8 @@
 fields:
+    active:
+        label: 'Ativo?'
+        span: full
+        type: switch
     name:
         label: 'Nome do Provedor'
         span: auto

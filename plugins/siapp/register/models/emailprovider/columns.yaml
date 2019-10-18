@@ -9,8 +9,11 @@ columns:
         label: 'Chave da API'
         type: text
     created_at:
-        label: created_at
+        label: 'Data de Criação'
         type: datetime
     updated_at:
-        label: updated_at
+        label: 'Data de atualização'
         type: datetime
+    active:
+        label: 'Ativo?'
+        type: text

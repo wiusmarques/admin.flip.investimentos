@@ -3,3 +3,6 @@
 1.0.2:
     - 'Created table siapp_register_email_provider'
     - builder_table_create_siapp_register_email_provider.php
+1.0.3:
+    - 'Updated table siapp_register_email_provider'
+    - builder_table_update_siapp_register_email_provider.php

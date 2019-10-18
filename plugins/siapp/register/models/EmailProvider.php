@@ -24,4 +24,14 @@ class EmailProvider extends Model
      */
     public $rules = [
     ];
+
+    public function beforeSave(){
+
+        if($this->active == 1){
+            EmailProvider::where('id', "!=", $this->id)
+            ->update(['active' => 0]);
+        }
+    }
+
+
 }

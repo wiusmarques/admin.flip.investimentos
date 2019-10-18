@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'debug' => true,
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'url' => 'https://flipinvestimentos.com.br',
+    'url' => env('APP_URL', 'https://flipinvestimentos.com.br'),
 
     /*
     |--------------------------------------------------------------------------
@@ -101,7 +101,7 @@ return [
     |
     */
 
-    'key' => 'Y660q1RA6VZlmzGqzSBi5AEAVeRtDtpw',
+    'key' => env('APP_KEY', ''),
 
     'cipher' => 'AES-256-CBC',
 

@@ -31,11 +31,11 @@ class Plugin extends PluginBase
                     header('Access-Control-Allow-Origin: localhost');
                     header('Access-Control-Allow-Credentials: true');
 
-                    ActivationCode::sendActivationCode(post('email'));
-                    return post('email');
+                    //ActivationCode::sendActivationCode(post('email'));
+                    //return post('email');
 
                     
-                    exit();
+                    
 
                     if ($validDomain != '*' && $validDomain != $domain) {
                         return Response::make('Access denied', 403);

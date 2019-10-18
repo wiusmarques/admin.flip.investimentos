@@ -1,0 +1,11 @@
+/*
+!.gitignore
+
+!/config
+/config/*
+!/config/*
+
+!/plugins
+/plugins/*
+!/plugins/*
+

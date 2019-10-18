@@ -1,0 +1,68 @@
+tabs:
+    fields:
+        active:
+            label: 'siapp.website::lang.siapp.website.plans.columns.active'
+            span: full
+            default: 1
+            required: 0
+            type: switch
+            tab: 'siapp.website::lang.siapp.website.plans.tab.title.general_data'
+        name:
+            label: 'siapp.website::lang.siapp.website.plans.columns.name'
+            span: left
+            required: 1
+            type: text
+            commentAbove: 'Informe o nome do plano que será exibido no site'
+            tab: 'siapp.website::lang.siapp.website.plans.tab.title.general_data'
+        short_description:
+            label: 'siapp.website::lang.siapp.website.plans.columns.short_description'
+            size: small
+            span: full
+            type: textarea
+            commentAbove: 'Informe os detalhes do plano'
+            tab: 'siapp.website::lang.siapp.website.plans.tab.title.general_data'
+        old_price:
+            label: 'siapp.website::lang.siapp.website.plans.columns.old_price'
+            span: auto
+            placeholder: '0.00'
+            required: 1
+            attributes:
+                class: "money"
+            type: text
+            commentAbove: 'Informe o valor antigo do produto'
+            tab: 'siapp.website::lang.siapp.website.plans.tab.title.general_data'
+        price:
+            label: 'siapp.website::lang.siapp.website.plans.columns.new_price'
+            span: auto
+            placeholder: '0.00'
+            required: 1
+            type: text
+            commentAbove: 'Informe o valor atual do produto'
+            tab: 'siapp.website::lang.siapp.website.plans.tab.title.general_data'
+        validate:
+            label: 'siapp.website::lang.siapp.website.plans.columns.validate'
+            mode: datetime
+            span: auto
+            required: 1
+            type: datepicker
+            commentAbove: 'Informe até quando esse valor ainda será válido'
+            tab: 'siapp.website::lang.siapp.website.plans.tab.title.general_data'
+        sort_order:
+            label: 'siapp.website::lang.siapp.website.plans.columns.sort_order'
+            span: auto
+            type: number
+            commentAbove: 'Informe um número inteiro representando a ordem de exibição da promoção'
+            tab: 'siapp.website::lang.siapp.website.plans.tab.title.general_data'
+            attributes:
+                min: '0'
+        background_image:
+            label: 'siapp.website::lang.siapp.website.plans.columns.background_plan'
+            mode: image
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            span: left
+            type: fileupload
+            commentAbove: 'Adicione uma imagem de Background para o plano'
+            tab: 'siapp.website::lang.siapp.website.plans.tab.title.images'

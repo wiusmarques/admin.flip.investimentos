@@ -1,0 +1,11 @@
+fields:
+    name:
+        label: 'Nome do Provedor'
+        span: auto
+        required: 1
+        type: text
+    key:
+        label: 'Chave da API'
+        span: full
+        required: 1
+        type: text

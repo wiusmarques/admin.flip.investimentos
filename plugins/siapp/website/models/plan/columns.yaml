@@ -1,0 +1,33 @@
+columns:
+    id:
+        label: id
+        type: number
+    name:
+        label: 'siapp.website::lang.siapp.website.plans.columns.name'
+        type: text
+        searchable: true
+    old_price:
+        label: 'siapp.website::lang.siapp.website.old_value'
+        type: text
+    price:
+        label: 'siapp.website::lang.siapp.website.plans.columns.new_price'
+        type: text
+    sort_order:
+        label: 'siapp.website::lang.siapp.website.plans.columns.sort_order'
+        type: number
+    validate:
+        label: 'siapp.website::lang.siapp.website.plans.columns.validate'
+        type: text
+        invisible: true
+    created_at:
+        label: create
+        type: datetime
+        invisible: true
+    updated_at:
+        label: updated_at
+        type: datetime
+        invisible: true
+    deleted_at:
+        label: deleted_at
+        type: datetime
+        invisible: true

@@ -1,0 +1,10 @@
+name: EmailProviders
+form: $/siapp/register/models/emailprovider/fields.yaml
+modelClass: siapp\Register\Models\EmailProvider
+defaultRedirect: siapp/register/emailproviders
+create:
+    redirect: 'siapp/register/emailproviders/update/:id'
+    redirectClose: siapp/register/emailproviders
+update:
+    redirect: siapp/register/emailproviders
+    redirectClose: siapp/register/emailproviders

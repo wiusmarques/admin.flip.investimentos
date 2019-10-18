@@ -1,0 +1,4 @@
+title: Plans
+modelClass: siapp\Website\Models\Plan
+toolbar:
+    buttons: reorder_toolbar

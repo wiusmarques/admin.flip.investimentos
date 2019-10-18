@@ -1,0 +1,20 @@
+plugin:
+    name: 'siapp.register::lang.plugin.name'
+    description: 'siapp.register::lang.plugin.description'
+    author: 'Wiusmarques Moreira dos Reis'
+    icon: oc-icon-archive
+    homepage: ''
+permissions:
+    register_email_provider:
+        tab: 'siapp.register::lang.plugin.name'
+        label: 'Permite gerenciar as Chaves de API de e-mail'
+    register:
+        tab: 'siapp.register::lang.plugin.name'
+        label: 'Permite gerenciar o Plugin de registros'
+navigation:
+    main-menu-item:
+        label: Registros
+        url: siapp/register/emailproviders
+        icon: icon-archive
+        permissions:
+            - register_email_provider

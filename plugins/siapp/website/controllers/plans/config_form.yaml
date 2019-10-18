@@ -1,0 +1,10 @@
+name: Plans
+form: $/siapp/website/models/plan/fields.yaml
+modelClass: siapp\Website\Models\Plan
+defaultRedirect: siapp/website/plans
+create:
+    redirect: 'siapp/website/plans/update/:id'
+    redirectClose: siapp/website/plans
+update:
+    redirect: siapp/website/plans
+    redirectClose: siapp/website/plans

@@ -1,0 +1,12 @@
+list: $/siapp/register/models/emailprovider/columns.yaml
+modelClass: siapp\Register\Models\EmailProvider
+title: EmailProviders
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'siapp/register/emailproviders/update/:id'

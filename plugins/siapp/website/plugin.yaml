@@ -1,0 +1,27 @@
+plugin:
+    name: 'siapp.website::lang.plugin.name'
+    description: 'siapp.website::lang.plugin.description'
+    author: 'Wiusmarques Moreira dos Reis'
+    icon: oc-icon-adjust
+    homepage: ''
+permissions:
+    website_plans:
+        tab: 'siapp.website::lang.siapp.website.menu.plans'
+        label: 'siapp.website::lang.siapp.website.plans.permission.description'
+    website:
+        tab: 'siapp.website::lang.siapp.website.menu.website'
+        label: 'siapp.website::lang.siapp.website.plans.permission.webiste'
+navigation:
+    website:
+        label: Website
+        url: siapp/website/plans
+        icon: icon-globe
+        permissions:
+            - website
+        sideMenu:
+            website_plans:
+                label: 'siapp.website::lang.siapp.website.menu.plans'
+                url: siapp/website/plans
+                icon: icon-diamond
+                permissions:
+                    - website_plans

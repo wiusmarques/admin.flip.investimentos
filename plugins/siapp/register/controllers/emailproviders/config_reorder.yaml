@@ -1,0 +1,4 @@
+title: EmailProviders
+modelClass: siapp\Register\Models\EmailProvider
+toolbar:
+    buttons: reorder_toolbar

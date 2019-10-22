@@ -1,7 +1,7 @@
 /*
 !README.md
 !.gitignore
-
+!composer.json
 !/config
 /config/*
 !/config/*

@@ -10,3 +10,7 @@
 /plugins/*
 !/plugins/*
 
+!/themes
+/themes/*
+!/themes/*
+

@@ -1,5 +1,5 @@
 <?php namespace siapp\Website;
-require 'vendor/autoload.php';
+
 
 use System\Classes\PluginBase;
 use RainLab\User\Models\Settings as UserSettings;
@@ -12,6 +12,7 @@ use Validator;
 use Request;
 use Response;
 use siapp\Register\Models\EmailProvider;
+use Siapp\Website\Components\Account;
 
 class Plugin extends PluginBase
 {
@@ -90,7 +91,7 @@ class Plugin extends PluginBase
                     if($user){
 
                         $code = md5($user->mail . date("Y-m-d H:i:s"));
-                        $html = file_get_contents("http://www.siapptechs.com/email/confirmation/" . $user->name);
+                        $html = file_get_contents("http://www.siapptechs.com/email/confirmation/" . $code . "/" . $user->name);
                         trace_log($html);
                         $email = new \SendGrid\Mail\Mail(); 
                         $email->setFrom("noreply@flipinvestimentos.com", "Flip Invistimentos");
@@ -125,7 +126,7 @@ class Plugin extends PluginBase
                     //return post();
                 });
 
-
+                
         
                 
             });
@@ -158,6 +159,9 @@ class Plugin extends PluginBase
 
     public function registerComponents()
     {
+        return [
+            'Siapp\Website\Components\Account' => 'account'
+        ];
     }
 
     public function registerSettings()

@@ -1,0 +1,9 @@
+title = "Page not found (404)"
+url = "/account/active/:code?"
+layout = "default"
+
+[account]
+code = "{{ :code }}"
+==
+
+{{ dump(account) }}

@@ -22,7 +22,7 @@ class Account extends ComponentBase
         $now = date("Y-m-d H:i:s");
         $result = ActivationCode::where('hash', $code)->where('valid_at', '<=', $now)->get();
         trace_log($result);
-        dd($result->email);
+        dd($result->user_mail);
     }
 
 

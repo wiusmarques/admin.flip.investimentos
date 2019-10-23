@@ -86,7 +86,7 @@ class Plugin extends PluginBase
                     if($user){
 
                         $code = md5($user->mail . date("Y-m-d H:i:s"));
-                        $url = "http://www.siapptechs.com/email/confirmation/" . $code . "/" . urlencode ($user->name);
+                        $url = "http://www.siapptechs.com/email/confirmation/" . $code . "/" . rawurlencode($user->name);
                         $html = file_get_contents($url);
                         
                         trace_log($url);

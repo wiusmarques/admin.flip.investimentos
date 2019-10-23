@@ -20,9 +20,9 @@ class Account extends ComponentBase
         
         $code = $this->property('code');
         $now = date("Y-m-d H:i:s");
-        $result = ActivationCode::where('hash', $code)->where('valid_at', '<=', $now);
+        $result = ActivationCode::where('hash', $code)->where('valid_at', '<=', $now)->get();
         trace_log($result);
-        
+        dd($result->email);
     }
 
 

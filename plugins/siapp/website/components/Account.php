@@ -24,7 +24,7 @@ class Account extends ComponentBase
         $registerActivation = ActivationCode::where('hash', $code)->where('valid_at', '>=', $now)->first();
 
         
-        if(isset($register) && !empty($register)){
+        if(isset($registerActivation) && !empty($registerActivation)){
             
             $user = Auth::findUserByLogin($registerActivation->user_mail);
             var_dump($user);

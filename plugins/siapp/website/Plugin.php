@@ -134,7 +134,7 @@ class Plugin extends PluginBase
                     //return post();
                 });
                 
-                Route::post('reset/password', function () {
+                Route::post('resubmit/code', function () {
                     
 
                     /* 
@@ -193,7 +193,7 @@ class Plugin extends PluginBase
 
                         try {
                             $sendgrid->send($email);
-                            
+
                             return ['status' => 'success', 'message' => 'O código foi enviado para ' . $user->email];
                         } catch (Exception $e) {
                             trace_log("Erro ao tentar enviar o e-mail para: " . $user->email . " entre em contato com o administrador do sistema. \nMensagem de Erro: " . $e->getMessage());

@@ -21,20 +21,19 @@ class Account extends ComponentBase
         
         $code = $this->property('code');
         $now = date("Y-m-d H:i:s");
-        $register = ActivationCode::where('hash', $code)->where('valid_at', '>=', $now)->first();
+        $registerActivation = ActivationCode::where('hash', $code)->where('valid_at', '>=', $now)->first();
 
         
         if(isset($register) && !empty($register)){
             
-            $user = Auth::findUserByLogin($register->user_mail);
+            $user = Auth::findUserByLogin($registerActivation->user_mail);
             var_dump($user);
             $user->is_activated = 1;
             $user->activated_at = date("Y-m-d H:i:s");
             
             $user->save();
-            
-            trace_log($register);
-            trace_log($user);
+            $registerActivation->delete();
+
 
         }else{
             //Nenhum registro encotnrado precisamos tratar

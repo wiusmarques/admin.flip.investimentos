@@ -2,6 +2,7 @@
 
 use Cms\Classes\ComponentBase;
 use ApplicationException;
+use siapp\Website\Models\ActivationCode;
 
 class Account extends ComponentBase
 {
@@ -17,8 +18,11 @@ class Account extends ComponentBase
 
     public function onRun(){
         
-        dd($this->property('code'));
-        exit();
+        $code = $this->property('code');
+        $now = date("Y-m-d H:i:s");
+        $result = ActivationCode::where('hash', $code)->where('valid_at', '<=', $now);
+        trace_log($result);
+        
     }
 
 

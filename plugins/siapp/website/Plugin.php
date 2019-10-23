@@ -104,7 +104,7 @@ class Plugin extends PluginBase
                         $sendgrid = new \SendGrid($data->key);
 
                         try {
-                            $sendgrid->send($email);
+                            //$sendgrid->send($email);
                             
                             $objActivation = new ActivationCode();
                             $objActivation->user_id = $user->id;

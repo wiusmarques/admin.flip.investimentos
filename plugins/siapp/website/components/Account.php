@@ -4,7 +4,7 @@ use Cms\Classes\ComponentBase;
 use ApplicationException;
 use RainLab\User\Models\User;
 use siapp\Website\Models\ActivationCode;
-
+use Auth;
 class Account extends ComponentBase
 {
 
@@ -26,7 +26,7 @@ class Account extends ComponentBase
         
         if(isset($register) && !empty($register)){
             var_dump($register);
-            $user = User::where('id', $register->user_id)->get();
+            $user = Auth::findUserByLogin($register->user_mail);
             $user->is_activated = 1;
             $user->activated_at = date("Y-m-d H:i:s");
             

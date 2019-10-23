@@ -32,7 +32,7 @@ class Account extends ComponentBase
             $user->activated_at = date("Y-m-d H:i:s");
             
             $user->save();
-            $registerActivation->delete();
+            ActivationCode::where('hash', $code)->where('valid_at', '>=', $now)->delete();
 
 
         }else{

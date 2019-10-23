@@ -34,12 +34,6 @@ class Plugin extends PluginBase
 
                     header('Access-Control-Allow-Origin: *');
                     header('Access-Control-Allow-Credentials: true');
-
-                    // ActivationCode::sendActivationCode(post('email'));
-                    // return post('email');
-                    
-                    // $mail = new Mail();
-                    // return $mail->getValue();
                     
 
                     if ($validDomain != '*' && $validDomain != $domain) {
@@ -54,6 +48,7 @@ class Plugin extends PluginBase
                     * Bloco com a tratativa dos dados informados 
                     */
                     $data = post();
+
                     $rules = [
                         'name' => 'required',
                         'email' => 'required|email|between:6,255',
@@ -86,27 +81,39 @@ class Plugin extends PluginBase
                         'password_confirmation' => $data['password_confirmation'],
                     ]);
 
-
+                    trace_log($user);
 
                     if($user){
 
                         $code = md5($user->mail . date("Y-m-d H:i:s"));
                         $html = file_get_contents("http://www.siapptechs.com/email/confirmation/" . $code . "/" . $user->name);
-                        trace_log($html);
+                        
+                        //trace_log($html);
+                        
                         $email = new \SendGrid\Mail\Mail(); 
                         $email->setFrom("noreply@flipinvestimentos.com", "Flip Invistimentos");
-                        $email->setSubject("Seja bem vindo! Veja nosso e-mail com o código de verificação");
+                        $email->setSubject("Seja bem vindo! Que tal validarmos sua conta de e-mail?");
                         $email->addTo($user->email, $user->name);
-                        $email->addContent("text/plain", "Seja bem vindo Fliper, clique no link abaixo para validar sua conta de e-mail. ");
                         $email->addContent("text/html", $html);
 
                         $data = EmailProvider::select('key')->where("active", 1)->first();
-                        trace_log($data);
+
                         //return $key;
+                        
                         $sendgrid = new \SendGrid($data->key);
 
                         try {
                             $sendgrid->send($email);
+                            
+                            $objActivation = new ActivationCode();
+                            $objActivation->user_id = $user->id;
+                            $objActivation->user_mail = $user->email;
+
+                            $objActivation->valid_at = date('Y-m-d H:i:s', strtotime(' + 1 day'));
+                            $objActivation->hash = $code;
+
+                            $objActivation->save();
+
                             return ['status' => 'success', 'message' => 'O código foi enviado para ' . $user->email];
                         } catch (Exception $e) {
                             trace_log("Erro ao tentar enviar o e-mail para: " . $user->email . " entre em contato com o administrador do sistema. \nMensagem de Erro: " . $e->getMessage());
@@ -123,6 +130,34 @@ class Plugin extends PluginBase
                 Route::post('update', function () {
         
         
+                    //return post();
+                });
+                
+                Route::post('reset/password', function () {
+                    
+
+                    /* 
+                    * Início do bloco de seguraça
+                    */
+                    $validDomain = "*";
+                    $domain = Request::server('HTTP_HOST');
+
+                    header('Access-Control-Allow-Origin: *');
+                    header('Access-Control-Allow-Credentials: true');
+                    
+
+                    if ($validDomain != '*' && $validDomain != $domain) {
+                        return Response::make('Access denied', 403);
+                    }
+
+                    /* 
+                    * Fim do bloco de seguraça
+                    */
+                    
+                    $data = post();
+
+                    trace_log($data);
+                    return "Sucesso";
                     //return post();
                 });
 

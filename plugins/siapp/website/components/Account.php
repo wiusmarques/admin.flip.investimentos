@@ -16,6 +16,7 @@ class Account extends ComponentBase
     }
 
     public function onRun(){
+        
         dd($this->property('code'));
         exit();
     }

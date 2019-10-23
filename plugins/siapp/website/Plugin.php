@@ -86,9 +86,10 @@ class Plugin extends PluginBase
                     if($user){
 
                         $code = md5($user->mail . date("Y-m-d H:i:s"));
-                        $html = file_get_contents("http://www.siapptechs.com/email/confirmation/" . $code . "/" . urlencode ($user->name));
+                        $url = "http://www.siapptechs.com/email/confirmation/" . $code . "/" . urlencode ($user->name);
+                        $html = file_get_contents($url);
                         
-                        trace_log($html);
+                        trace_log($url);
                         
                         $email = new \SendGrid\Mail\Mail(); 
                         $email->setFrom("noreply@flipinvestimentos.com", "Flip Invistimentos");

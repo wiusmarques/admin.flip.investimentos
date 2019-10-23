@@ -86,7 +86,7 @@ class Plugin extends PluginBase
                     if($user){
 
                         $code = md5($user->mail . date("Y-m-d H:i:s"));
-                        $html = file_get_contents(urlencode("http://www.siapptechs.com/email/confirmation/" . $code . "/" . $user->name));
+                        $html = file_get_contents("http://www.siapptechs.com/email/confirmation/" . $code . "/" . $user->name);
                         
                         //trace_log($html);
                         

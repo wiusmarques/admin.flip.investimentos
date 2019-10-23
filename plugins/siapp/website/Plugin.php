@@ -81,7 +81,7 @@ class Plugin extends PluginBase
                         'password_confirmation' => $data['password_confirmation'],
                     ]);
 
-                    trace_log($user);
+                    //trace_log($user);
 
                     if($user){
 
@@ -89,7 +89,7 @@ class Plugin extends PluginBase
                         $url = "http://www.siapptechs.com/email/confirmation/" . $code . "/" . rawurlencode($user->name);
                         $html = file_get_contents($url);
                         
-                        trace_log($url);
+                        //trace_log($url);
                         
                         $email = new \SendGrid\Mail\Mail(); 
                         $email->setFrom("noreply@flipinvestimentos.com", "Flip Invistimentos");
@@ -156,10 +156,52 @@ class Plugin extends PluginBase
                     */
                     
                     $data = post();
+                    $now = date("Y-m-d H:i:s");
 
-                    trace_log($data);
-                    return "Sucesso";
-                    //return post();
+                    $rules = [
+                        'email' => 'required|email|between:6,255',
+                    ];
+
+                    $errors = $this->validateData($data, $rules);
+                    
+                    if($errors != ""){
+                        return Response::make($errors, 403);
+                    }
+
+                    $registerActivation = ActivationCode::where('user_mail', $data['email'])->where('valid_at', '>=', $now)->first();
+                    $user = Auth::findUserByLogin($registerActivation->user_mail);
+
+                    if($user){
+
+                        $code = $registerActivation->hash;
+                        $url = "http://www.siapptechs.com/email/confirmation/" . $code . "/" . rawurlencode($user->name);
+                        $html = file_get_contents($url);
+                        
+                        //trace_log($url);
+                        
+                        $email = new \SendGrid\Mail\Mail(); 
+                        $email->setFrom("noreply@flipinvestimentos.com", "Flip Invistimentos");
+                        $email->setSubject("Seja bem vindo! Que tal validarmos sua conta de e-mail?");
+                        $email->addTo($user->email, $user->name);
+                        $email->addContent("text/html", $html);
+
+                        $data = EmailProvider::select('key')->where("active", 1)->first();
+
+                        //return $key;
+                        
+                        $sendgrid = new \SendGrid($data->key);
+
+                        try {
+                            $sendgrid->send($email);
+                            
+                            return ['status' => 'success', 'message' => 'O código foi enviado para ' . $user->email];
+                        } catch (Exception $e) {
+                            trace_log("Erro ao tentar enviar o e-mail para: " . $user->email . " entre em contato com o administrador do sistema. \nMensagem de Erro: " . $e->getMessage());
+                        }
+                    }else{
+                        return ['status' => 'success', 'message' => 'O código foi enviado para ' . $user->email];
+                    }
+                    
                 });
 
                 

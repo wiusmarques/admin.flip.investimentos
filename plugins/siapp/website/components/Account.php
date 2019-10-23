@@ -8,7 +8,8 @@ use Auth;
 class Account extends ComponentBase
 {
 
-    public $active = false;
+    public $active;
+
     public function componentDetails()
     {
         return [
@@ -27,7 +28,7 @@ class Account extends ComponentBase
         if(isset($registerActivation) && !empty($registerActivation)){
             
             $user = Auth::findUserByLogin($registerActivation->user_mail);
-            var_dump($user);
+            
             $user->is_activated = 1;
             $user->activated_at = date("Y-m-d H:i:s");
             

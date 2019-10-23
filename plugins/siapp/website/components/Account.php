@@ -28,6 +28,10 @@ class Account extends ComponentBase
             $user = User::where('id', $register->user_id)->get();
             $user->is_activated = 1;
             $user->activated_at = date("Y-m-d H:i:s");
+            
+            $user->save();
+
+            $this->$active = true;
             trace_log($register);
             trace_log($user);
 

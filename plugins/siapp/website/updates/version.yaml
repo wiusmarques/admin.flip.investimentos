@@ -21,3 +21,6 @@
 1.0.8:
     - 'Updated table siapp_website_activation_codes'
     - builder_table_update_siapp_website_activation_codes_3.php
+1.0.9:
+    - 'Created table siapp_website_reset_password_codes'
+    - builder_table_create_siapp_website_reset_password_codes.php

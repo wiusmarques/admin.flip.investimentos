@@ -13,6 +13,7 @@ use Request;
 use Response;
 use siapp\Register\Models\EmailProvider;
 use Siapp\Website\Components\Account;
+use siapp\Website\Models\ResetPasswordCode;
 
 class Plugin extends PluginBase
 {
@@ -73,7 +74,8 @@ class Plugin extends PluginBase
                         return Response::make($errors, 403);
                     }
 
-                    
+                    $code = md5($data['email'] . date("Y-m-d H:i:s"));
+
                     $user = Auth::register([
                         'name' => $data['name'],
                         'email' => $data['email'],
@@ -85,8 +87,7 @@ class Plugin extends PluginBase
 
                     if($user){
 
-                        $code = md5($user->mail . date("Y-m-d H:i:s"));
-                        $url = "http://www.siapptechs.com/email/confirmation/" . $code . "/" . rawurlencode($user->name);
+                        $url = url('/') . "/email/confirmation/" . $code . "/" . rawurlencode($user->name);
                         $html = file_get_contents($url);
                         
                         //trace_log($url);
@@ -110,7 +111,7 @@ class Plugin extends PluginBase
                             $objActivation->user_id = $user->id;
                             $objActivation->user_mail = $user->email;
 
-                            $objActivation->valid_at = date('Y-m-d H:i:s', strtotime(' + 1 day'));
+                            $objActivation->valid_at = date('Y-m-d H:i:s', strtotime(' + 30 day'));
                             $objActivation->hash = $code;
 
                             $objActivation->save();
@@ -120,20 +121,109 @@ class Plugin extends PluginBase
                             trace_log("Erro ao tentar enviar o e-mail para: " . $user->email . " entre em contato com o administrador do sistema. \nMensagem de Erro: " . $e->getMessage());
                         }
                     }else{
-                        return ['status' => 'success', 'message' => 'O código foi enviado para ' . $user->email];
+                        $errors = ['status' => 'Erro', 'message' => 'Erro no envio do e-mail para ' . $user->email];
+                        return Response::make($errors, 403);
                     }
 
                     
                 });
 
+                Route::post('reset/password', function(){
+                     /* 
+                    * Início do bloco de seguraça
+                    */
+                    $validDomain = "*";
+                    $domain = Request::server('HTTP_HOST');
 
-                
-                Route::post('update', function () {
-        
-        
-                    //return post();
+                    header('Access-Control-Allow-Origin: *');
+                    header('Access-Control-Allow-Credentials: true');
+                    
+
+                    if ($validDomain != '*' && $validDomain != $domain) {
+                        return Response::make('Access denied', 403);
+                    }
+
+                    /* 
+                    * Fim do bloco de seguraça
+                    */
+                    
+                    $data = post();
+                    $now = date("Y-m-d H:i:s");
+
+                    $rules = [
+                        'email' => 'required|email|between:6,255',
+                    ];
+
+                    $errors = $this->validateData($data, $rules);
+                    
+                    if($errors != ""){
+                        return Response::make($errors, 403);
+                    }
+
+                    $user = Auth::findUserByLogin($data['email']);
+
+                    if(!$user){
+                        $errors = [
+                            "Type" => "Erro",
+                            "Data" => "Essa conta não foi encontrada em nosso sistema",
+                        ];
+
+                        return Response::make($errors, 403);
+                    }
+
+
+                    if($user){
+                        
+                        $code = md5($user->mail . date("Y-m-d H:i:s"));
+
+                        $user->activation_code = $code;
+                        $user->reset_password_code = $code;
+                        $user->persist_code = $code;
+                        $user->save();
+
+                        
+                        $url = url('/') . "/password/reset/" . $code . "/";
+                        $html = file_get_contents($url);
+                        
+                        //trace_log($url);
+                        
+                        $email = new \SendGrid\Mail\Mail(); 
+                        $email->setFrom("noreply@flipinvestimentos.com", "Flip Invistimentos");
+                        $email->setSubject("Alteração de Senha - Flip Investimentos");
+                        $email->addTo($user->email, $user->name);
+                        $email->addContent("text/html", $html);
+
+                        $data = EmailProvider::select('key')->where("active", 1)->first();
+
+                        //return $key;
+                        
+                        $sendgrid = new \SendGrid($data->key);
+
+                        try {
+                            $sendgrid->send($email);
+                            
+                            $objActivation = new ResetPasswordCode();
+                            $objActivation->user_id = $user->id;
+                            $objActivation->user_mail = $user->email;
+
+                            $objActivation->valid_at = date('Y-m-d H:i:s', strtotime(' + 30 day'));
+                            $objActivation->hash = $code;
+
+                            $objActivation->save();
+
+                            return ['status' => 'success', 'message' => 'O código foi enviado para ' . $user->email];
+                        } catch (Exception $e) {
+                            trace_log("Erro ao tentar enviar o e-mail para: " . $user->email . " entre em contato com o administrador do sistema. \nMensagem de Erro: " . $e->getMessage());
+                        }
+                    }else{
+                        $errors = ['status' => 'Erro', 'message' => 'Erro no envio do e-mail para ' . $user->email];
+                        return Response::make($errors, 403);
+                    }
+                    
+
+                    return $user;
                 });
-                
+
                 Route::post('resubmit/code', function () {
                     
 
@@ -174,7 +264,7 @@ class Plugin extends PluginBase
                     if($user){
 
                         $code = $registerActivation->hash;
-                        $url = "http://www.siapptechs.com/email/confirmation/" . $code . "/" . rawurlencode($user->name);
+                        $url = "/email/confirmation/" . $code . "/" . rawurlencode($user->name);
                         $html = file_get_contents($url);
                         
                         //trace_log($url);
@@ -203,6 +293,14 @@ class Plugin extends PluginBase
                     }
                     
                 });
+                
+                Route::post('update', function () {
+        
+        
+                    //return post();
+                });
+                
+                
 
                 
         

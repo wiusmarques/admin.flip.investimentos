@@ -16,6 +16,8 @@ Remove two folder before download this repositorie:
 1. config/
 2. plugins/
 
+Note: If has any conflict, delete this file or folder
+
 ## 3- Download this repository
 
 Use the git command to this task

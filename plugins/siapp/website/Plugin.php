@@ -300,11 +300,6 @@ class Plugin extends PluginBase
                     //return post();
                 });
                 
-                
-
-                
-        
-                
             });
             
         });

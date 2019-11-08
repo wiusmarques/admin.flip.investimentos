@@ -1,22 +1,47 @@
-<!-- Nav -->
-<nav id="layout-nav" class="navbar navbar-inverse navbar-fixed-top navbar-autohide" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{ 'home'|page }}">October Demo</a>
+
+==
+<header class="header">
+    <nav class="header-navbar">
+        <div class="header-item d-lg-none">
+            <a href="#sidenav" data-toggle="modal" aria-label="sidenav">
+                <img class="lozad" width="18" data-src="../assets/images/icons/menu.svg" alt="menu">
+            </a>
         </div>
-        <div class="collapse navbar-collapse navbar-main-collapse">
-            <ul class="nav navbar-nav">
-                <li class="separator hidden-xs"></li>
-                <li class="{% if this.page.id == 'home' %}active{% endif %}"><a href="{{ 'home'|page }}">Basic concepts</a></li>
-                <li class="{% if this.page.id == 'ajax' %}active{% endif %}"><a href="{{ 'ajax'|page }}">AJAX framework</a></li>
-                <li class="{% if this.page.id == 'plugins' %}active{% endif %}"><a href="{{ 'plugins'|page }}">Plugin components</a></li>
-            </ul>
+        <div class="header-item d-lg-inline-block d-none">
+            <a href="index.html">
+                <img width="103" class="lozad" data-src="../assets/images/logos/logo.png">
+            </a>
         </div>
-    </div>
-</nav>
+        <ul class="header-item list-unstyled mb-0 d-flex">
+            <li>
+                <a class="btn btn-lg btn-txt-yellow d-lg-inline-block d-none" href="index.html">Home</a>
+            </li>
+            <li>    
+                <a class="btn btn-lg btn-txt-yellow d-lg-inline-block d-none" href="#">Planos</a>
+            </li>
+            <li>
+                <a class="btn btn-lg btn-txt-yellow d-lg-inline-block d-none" href="#">Calculadora</a>
+            </li>
+            <li>
+                <a class="btn btn-lg btn-txt-yellow d-lg-inline-block d-none" href="blog.html">Blog</a>
+            </li>
+            <li>
+                <a class="btn btn-lg btn-txt-yellow d-lg-inline-block d-none" href="about.html">Sobre</a>
+            </li>
+            <li>
+                <a class="btn btn-lg btn-txt-yellow" href="login.html">Login</a>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-btn btn btn-lg btn-txt-yellow" href="./pages/login.html">Meu acesso</a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-link" href="#">Videos</a>
+                    <a class="dropdown-link" href="#">PodCast</a>
+                    <a class="dropdown-link" href="#">Notificações</a>
+                    <a class="dropdown-link" href="#">Sua carteira</a>
+                    <a class="dropdown-link" href="#">Carteira recomendada</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</header>
+

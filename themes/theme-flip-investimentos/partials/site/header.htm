@@ -4,41 +4,40 @@
     <nav class="header-navbar">
         <div class="header-item d-lg-none">
             <a href="#sidenav" data-toggle="modal" aria-label="sidenav">
-                <img class="lozad" width="18" data-src="../assets/images/icons/menu.svg" alt="menu">
+                <img class="lozad" width="18" data-src="{{ 'assets/images/icons/menu.svg'|theme }}" alt="menu">
             </a>
         </div>
         <div class="header-item d-lg-inline-block d-none">
-            <a href="index.html">
-                <img width="103" class="lozad" data-src="../assets/images/logos/logo.png">
+            <a href="{{ ''|page }}">
+                <img width="103" class="lozad" data-src="{{ 'assets/images/logos/logo.png'|theme }}">
             </a>
         </div>
         <ul class="header-item list-unstyled mb-0 d-flex">
             <li>
-                <a class="btn btn-lg btn-txt-yellow d-lg-inline-block d-none" href="index.html">Home</a>
+                <a class="btn btn-lg btn-txt-yellow d-lg-inline-block d-none" href="{{ ''|page }}">Home</a>
             </li>
             <li>    
-                <a class="btn btn-lg btn-txt-yellow d-lg-inline-block d-none" href="#">Planos</a>
+                <a class="btn btn-lg btn-txt-yellow d-lg-inline-block d-none" href="{{ 'planos'|page }}">Planos</a>
             </li>
             <li>
-                <a class="btn btn-lg btn-txt-yellow d-lg-inline-block d-none" href="#">Calculadora</a>
+                <a class="btn btn-lg btn-txt-yellow d-lg-inline-block d-none" href="{{ 'calculadora'|page }}">Calculadora</a>
             </li>
             <li>
-                <a class="btn btn-lg btn-txt-yellow d-lg-inline-block d-none" href="blog.html">Blog</a>
+                <a class="btn btn-lg btn-txt-yellow d-lg-inline-block d-none" href="{{ 'blog'|page }}">Blog</a>
             </li>
             <li>
-                <a class="btn btn-lg btn-txt-yellow d-lg-inline-block d-none" href="about.html">Sobre</a>
+                <a class="btn btn-lg btn-txt-yellow d-lg-inline-block d-none" href="{{ 'sobre'|page }}">Sobre</a>
             </li>
             <li>
-                <a class="btn btn-lg btn-txt-yellow" href="login.html">Login</a>
+                <a class="btn btn-lg btn-txt-yellow" href="{{ 'login'|page }}">Login</a>
             </li>
             <li class="dropdown">
-                <a class="dropdown-btn btn btn-lg btn-txt-yellow" href="./pages/login.html">Meu acesso</a>
+                <a class="dropdown-btn btn btn-lg btn-txt-yellow" >Meu acesso</a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-link" href="#">Videos</a>
-                    <a class="dropdown-link" href="#">PodCast</a>
-                    <a class="dropdown-link" href="#">Notificações</a>
-                    <a class="dropdown-link" href="#">Sua carteira</a>
-                    <a class="dropdown-link" href="#">Carteira recomendada</a>
+                    <a class="dropdown-link" href="{{ 'acervo'|page }}">Meus materiais</a>
+                    <a class="dropdown-link" href="{{ 'novidades'|page }}">Novidades</a>
+                    <a class="dropdown-link" href="{{ 'minha-carteira'|page }}">Minha carteira</a>
+                    <a class="dropdown-link" href="{{ 'carteiras-recomendadas'|page }}">Carteira recomendada</a>
                 </div>
             </li>
         </ul>

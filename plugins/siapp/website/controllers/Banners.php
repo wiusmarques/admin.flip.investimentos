@@ -11,6 +11,8 @@ class Banners extends Controller
     public $formConfig = 'config_form.yaml';
     public $reorderConfig = 'config_reorder.yaml';
 
+    const SORT_ORDER = 'sort_order';
+
     public $requiredPermissions = [
         'website_banners' 
     ];
@@ -19,6 +21,11 @@ class Banners extends Controller
     {
         parent::__construct();
         BackendMenu::setContext('siapp.Website', 'website', 'banners');
+    }
+
+    public function reorderExtendQuery($query)
+    {
+        $query->orderBy('sort_order', 'asc')->get();
     }
 
     

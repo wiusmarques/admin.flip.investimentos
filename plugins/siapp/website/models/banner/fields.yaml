@@ -13,7 +13,7 @@ tabs:
             type: text
             commentAbove: 'Informe o nome do banner'
             tab: 'Dados Gerais'
-        location_id:
+        location:
             label: 'Localização do banner'
             nameFrom: name
             descriptionFrom: description

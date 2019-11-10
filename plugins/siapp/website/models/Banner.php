@@ -8,11 +8,11 @@ use Model;
 class Banner extends Model
 {
     use \October\Rain\Database\Traits\Validation;
-    
+    use \October\Rain\Database\Traits\Sortable;
     use \October\Rain\Database\Traits\SoftDelete;
 
     protected $dates = ['deleted_at'];
-
+    const SORT_ORDER = 'sort_order';
 
     /**
      * @var string The database table used by the model.
@@ -25,7 +25,7 @@ class Banner extends Model
     ];
 
     public $belongsTo = [
-        'location_id' => 'siapp\Website\Models\BannerLocation',
+        'location' => 'siapp\Website\Models\BannerLocation',
     ];
 
     /**
@@ -34,14 +34,14 @@ class Banner extends Model
     
     public $rules = [
         'name' => 'required',
-        'location_id' => 'required',
+        'location' => 'required',
         'banner_desktop' => 'required',
         'banner_mobile' => 'required',
     ];
 
     public $customMessage = [
         'name.required' => 'O nome do banner é um campo obrigatório',
-        'location_id.required' => 'A localização do banner é um campo obrigatório',
+        'location.required' => 'A localização do banner é um campo obrigatório',
         'banner_desktop' => 'A imagem desktop do banner é obrigatória',
         'banner_mobile' => 'A imagem mobile do banner é obrigatória',
     ];

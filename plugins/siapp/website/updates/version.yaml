@@ -33,3 +33,18 @@
 1.0.12:
     - 'Created table siapp_website_banners'
     - builder_table_create_siapp_website_banners.php
+1.0.13:
+    - 'Updated table siapp_website_banners'
+    - builder_table_update_siapp_website_banners.php
+1.0.14:
+    - 'Updated table siapp_website_banners'
+    - builder_table_update_siapp_website_banners_2.php
+1.0.15:
+    - 'Updated table siapp_website_banners'
+    - builder_table_update_siapp_website_banners_3.php
+1.0.16:
+    - 'Updated table siapp_website_banners'
+    - builder_table_update_siapp_website_banners_4.php
+1.0.17:
+    - 'Updated table siapp_website_banners'
+    - builder_table_update_siapp_website_banners_5.php

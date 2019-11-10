@@ -24,3 +24,9 @@
 1.0.9:
     - 'Created table siapp_website_reset_password_codes'
     - builder_table_create_siapp_website_reset_password_codes.php
+1.0.10:
+    - 'Created table siapp_website_banners_locations'
+    - builder_table_create_siapp_website_banners_locations.php
+1.0.11:
+    - 'Updated table siapp_website_banners_locations'
+    - builder_table_update_siapp_website_banners_locations.php

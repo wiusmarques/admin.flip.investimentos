@@ -1,0 +1,10 @@
+name: BannerLocation
+form: $/siapp/website/models/bannerlocation/fields.yaml
+modelClass: siapp\Website\Models\BannerLocation
+defaultRedirect: siapp/website/bannerlocation
+create:
+    redirect: 'siapp/website/bannerlocation/update/:id'
+    redirectClose: siapp/website/bannerlocation
+update:
+    redirect: siapp/website/bannerlocation
+    redirectClose: siapp/website/bannerlocation

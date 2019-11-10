@@ -6,11 +6,14 @@ plugin:
     homepage: ''
 permissions:
     website_plans:
-        tab: 'siapp.website::lang.siapp.website.menu.plans'
-        label: 'siapp.website::lang.siapp.website.plans.permission.description'
+        tab: 'siapp.website::lang.siapp.website.menu.name'
+        label: 'Permite gerenciar os planos'
     website:
-        tab: 'siapp.website::lang.siapp.website.menu.website'
-        label: 'siapp.website::lang.siapp.website.plans.permission.webiste'
+        tab: 'siapp.website::lang.siapp.website.menu.name'
+        label: 'Permite Gerenciar o componente WebSite'
+    website_banner_location:
+        tab: 'siapp.website::lang.siapp.website.menu.name'
+        label: 'Permite Gerenciar a localização de Banners'
 navigation:
     website:
         label: Website
@@ -25,3 +28,9 @@ navigation:
                 icon: icon-diamond
                 permissions:
                     - website_plans
+            banner-location:
+                label: 'Localização de Banners'
+                url: siapp/website/bannerLocation
+                icon: icon-location-arrow
+                permissions:
+                    - website_banner_location

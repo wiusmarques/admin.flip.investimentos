@@ -47,5 +47,23 @@
                 'website' => 'Website',
             ],
         ],
+        'website::lang' => [
+            'siapp' => [
+                'website' => [
+                    'plans' => [
+                        'permission' => [
+                            'bannerLocation' => 'Permite adicionar localizações de banners',
+                        ],
+                    ],
+                    'banners' => [
+                        'locations' => [
+                            'permission' => [
+                                'webiste' => 'Permite gerenciar as localizações de Banners',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
     ],
 ];

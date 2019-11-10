@@ -1,0 +1,4 @@
+title: BannerLocation
+modelClass: siapp\Website\Models\BannerLocation
+toolbar:
+    buttons: reorder_toolbar

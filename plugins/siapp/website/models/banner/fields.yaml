@@ -1,0 +1,58 @@
+tabs:
+    fields:
+        status:
+            label: 'Banner ativo?'
+            span: full
+            default: 1
+            type: switch
+            tab: 'Dados Gerais'
+        name:
+            label: 'Nome do banner'
+            span: auto
+            required: 1
+            type: text
+            commentAbove: 'Informe o nome do banner'
+            tab: 'Dados Gerais'
+        location_id:
+            label: 'Localização do banner'
+            nameFrom: name
+            descriptionFrom: description
+            span: auto
+            required: 1
+            type: relation
+            commentAbove: 'Informe a página em que o banner estará visível'
+            tab: 'Dados Gerais'
+        url:
+            label: 'URL do banner'
+            span: full
+            type: text
+            commentAbove: 'Se houver a necessidade de que o banner redirecione para outra página, adicione a URL abaixo'
+            tab: 'Dados Gerais'
+        open_new_tab:
+            label: 'Abrir o link em nova guia?'
+            span: full
+            type: switch
+            tab: 'Dados Gerais'
+        banner_desktop:
+            label: 'Imagem Desktop'
+            mode: image
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            span: full
+            required: 1
+            type: fileupload
+            commentAbove: 'Informe a imagem que será exibida na versão Desktop da aplicação'
+            tab: Imagens
+        banner_mobile:
+            label: 'Imagem Mobile'
+            mode: image
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            span: left
+            type: fileupload
+            commentAbove: 'Envie um arquivo com a versão mobile'
+            tab: Imagens

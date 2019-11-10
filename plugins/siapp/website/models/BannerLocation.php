@@ -23,5 +23,10 @@ class BannerLocation extends Model
      * @var array Validation rules
      */
     public $rules = [
+        'name' => 'required'
+    ];
+
+    public $customMessages = [
+        'name.required' => 'É necessário informar o nome da localização para poder continuar',
     ];
 }

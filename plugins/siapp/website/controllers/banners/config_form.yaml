@@ -1,0 +1,10 @@
+name: Banners
+form: $/siapp/website/models/banner/fields.yaml
+modelClass: siapp\Website\Models\Banner
+defaultRedirect: siapp/website/banners
+create:
+    redirect: 'siapp/website/banners/update/:id'
+    redirectClose: siapp/website/banners
+update:
+    redirect: siapp/website/banners
+    redirectClose: siapp/website/banners

@@ -1,0 +1,4 @@
+title: Banners
+modelClass: siapp\Website\Models\Banner
+toolbar:
+    buttons: reorder_toolbar

@@ -30,3 +30,6 @@
 1.0.11:
     - 'Updated table siapp_website_banners_locations'
     - builder_table_update_siapp_website_banners_locations.php
+1.0.12:
+    - 'Created table siapp_website_banners'
+    - builder_table_create_siapp_website_banners.php

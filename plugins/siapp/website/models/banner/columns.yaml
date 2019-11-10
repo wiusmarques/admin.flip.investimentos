@@ -1,0 +1,13 @@
+columns:
+    id:
+        label: id
+        type: number
+    location_id:
+        label: Localização
+        type: number
+    name:
+        label: 'Nome do banner'
+        type: text
+    status:
+        label: 'Ativo?'
+        type: text

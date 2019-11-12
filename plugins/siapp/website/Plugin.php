@@ -331,7 +331,7 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            'Siapp\Website\Components\Account' => 'account',
+            Components\Account::class => 'account',
             Components\Banners::class => 'banners',
 
         ];

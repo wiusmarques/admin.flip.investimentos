@@ -23,7 +23,7 @@ class Banners extends ComponentBase
         
         if ($this->property('bannerLocation')) {
             $locationID = $this->property('bannerLocation');
-            $this->banners = Banner::where('location', $locationID)->get();
+            $this->banners = Banner::where('location_id', $locationID)->get();
         }
 
         

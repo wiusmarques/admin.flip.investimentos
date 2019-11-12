@@ -1,4 +1,4 @@
-<?php namespace siapp\Website;
+<?php namespace Siapp\Website;
 
 
 use System\Classes\PluginBase;

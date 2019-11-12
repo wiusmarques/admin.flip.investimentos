@@ -1,6 +1,7 @@
 <?php namespace Siapp\Website\Components;
 
 use siapp\Website\Models\Banner;
+use Cms\Classes\ComponentBase;
 
 class Banners extends ComponentBase
 {

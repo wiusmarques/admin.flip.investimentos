@@ -20,7 +20,9 @@ class Plugin extends PluginBase
 
 
     public function boot(){
-        
+        /** Otimizar o código que faz os disparos, 
+         * o código está muito estrutural e podemos escrever isso de forma melhor
+         * */
         Route::group(['prefix' => 'api/v1'], function () {
     
             Route::group(['prefix' => 'account'], function () {

@@ -29,4 +29,8 @@ class BannerLocation extends Model
     public $customMessages = [
         'name.required' => 'É necessário informar o nome da localização para poder continuar',
     ];
+
+    public function beforeSave(){
+        trace_log('entrou');
+    }
 }

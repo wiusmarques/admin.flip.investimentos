@@ -1,0 +1,19 @@
+columns:
+    id:
+        label: id
+        type: number
+    type:
+        label: Tipo
+        type: text
+    text:
+        label: Conteúdo
+        type: partial
+        searchable: true
+        sortable: true
+        path: ~/plugins/siapp/website/models/content/_text.htm
+    description:
+        label: Descrição
+        type: text
+    updated_at:
+        label: 'Data de Atualização'
+        type: datetime

@@ -48,3 +48,6 @@
 1.0.17:
     - 'Updated table siapp_website_banners'
     - builder_table_update_siapp_website_banners_5.php
+1.0.18:
+    - 'Created table siapp_website_content'
+    - builder_table_create_siapp_website_content.php

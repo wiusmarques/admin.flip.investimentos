@@ -1,0 +1,12 @@
+fields:
+    section:
+        label: 'Sessão ou página'
+        span: full
+        type: text
+        commentAbove: 'Selecione o agrupamento de sessão ou página ao qual deseja alterar o conteúdo'
+    text:
+        label: Conteúdo
+        size: huge
+        span: full
+        type: richeditor
+        toolbarButtons: bold|italic|underline|fontSize|color|align|strikeThrough|color|emoticons|inlineStyle|html|undo|redo

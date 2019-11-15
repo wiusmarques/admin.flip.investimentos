@@ -1,0 +1,17 @@
+<div style="padding-left: 20px;">
+		<!-- Form Elements -->
+	<form class="form-elements" role="form">
+		<div class="form-group dropdown-field span-left">
+	        <label>Filtrar por Página</label>
+	        
+	         <select class="form-control custom-select" name="section" data-request="onSaveCurrentSection">
+	         	<option value="" >Selecione uma página</option>
+                 <?php foreach($sections as $s){ ?>
+	            	<option value="<?= $s ?>" <?php if($currentSection == $s ){ ?>selected="selected"<?php } ?>><?= $s ?></option>
+	            <?php } ?>
+	            
+	        </select>
+	    </div>
+	</form>
+</div>
+<?= $this->listRender() ?>

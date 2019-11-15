@@ -1,0 +1,10 @@
+name: Content
+form: $/siapp/website/models/content/fields.yaml
+modelClass: siapp\Website\Models\Content
+defaultRedirect: siapp/website/content
+create:
+    redirect: 'siapp/website/content/update/:id'
+    redirectClose: siapp/website/content
+update:
+    redirect: siapp/website/content
+    redirectClose: siapp/website/content

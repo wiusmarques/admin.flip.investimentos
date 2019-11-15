@@ -62,6 +62,11 @@
                             ],
                         ],
                     ],
+                    'permission' => [
+                        'website' => [
+                            'title' => 'Gestão do site',
+                        ],
+                    ],
                 ],
             ],
         ],

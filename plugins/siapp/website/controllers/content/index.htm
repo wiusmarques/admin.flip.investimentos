@@ -7,7 +7,7 @@
 	         <select class="form-control custom-select" name="section" data-request="onSaveCurrentSection">
 	         	<option value="" >Selecione uma página</option>
                  <?php foreach($sections as $s){ ?>
-	            	<option value="<?= $s ?>" <?php if($currentSection == $s ){ ?>selected="selected"<?php } ?>><?= $s ?></option>
+	            	<option value="<?= $s ?>" <?php if(\Session::get('currentWbsiteSection') == $s ){ ?>selected="selected"<?php } ?>><?= $s ?></option>
 	            <?php } ?>
 	            
 	        </select>

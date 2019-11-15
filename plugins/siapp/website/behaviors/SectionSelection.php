@@ -29,6 +29,6 @@ class SectionSelection extends \October\Rain\Extension\ExtensionBase
         $section = post('section');
 
         Session::put('currentWbsiteSection', $section);
-        return Redirect::refresh();
+        return Redirect::refresh()->with('current_website', $section);
     }
 }

@@ -13,6 +13,7 @@ use Request;
 use Response;
 use siapp\Register\Models\EmailProvider;
 use Siapp\Website\Components\Account;
+use siapp\Website\Models\Content;
 use siapp\Website\Models\ResetPasswordCode;
 
 class Plugin extends PluginBase
@@ -340,5 +341,33 @@ class Plugin extends PluginBase
 
     public function registerSettings()
     {
+    }
+
+    public function registerMarkupTags()
+    {
+        return [
+            'filters' => [
+                'contenttext' => [$this, 'contentText']
+            ],
+        ];
+    }
+
+    public function contentText($text, $section = '', $removeP = false, $description = ''){
+        
+        $code = md5($text . $section . $description);
+        $content = Content::where("code", $code)->first();
+
+        if(!$content){
+            $content = new Content;
+            $content->type = 'text';
+            $content->text = $text;
+            $content->code = $code;
+            $content->section = $section;
+            $content->url = url()->full();
+            $content->save();
+            return $content->text;
+        }else{
+            return $content->text;
+        }
     }
 }

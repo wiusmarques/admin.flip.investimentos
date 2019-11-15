@@ -347,7 +347,8 @@ class Plugin extends PluginBase
     {
         return [
             'filters' => [
-                'contenttext' => [$this, 'contentText']
+                'contenttext' => [$this, 'contentText'],
+                'contentimage' => [$this, 'contentImage']
             ],
         ];
     }
@@ -369,5 +370,10 @@ class Plugin extends PluginBase
         }else{
             return $content->text;
         }
+    }
+
+    public function contentImage($url, $section = '', $identifier = '')
+    {
+        return $url;
     }
 }

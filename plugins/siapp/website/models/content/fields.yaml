@@ -1,9 +1,10 @@
 fields:
     section:
-        label: 'Sessão ou página'
+        label: 'Local do conteúdo'
         span: full
         type: text
-        commentAbove: 'Selecione o agrupamento de sessão ou página ao qual deseja alterar o conteúdo'
+        attributes:
+            disabled: true
     text:
         label: Conteúdo
         size: huge

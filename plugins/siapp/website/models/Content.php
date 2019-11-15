@@ -19,10 +19,6 @@ class Content extends Model
      */
     public $table = 'siapp_website_content';
 
-    public function getSectionOptions(){
-        return [];
-    }
-
     /**
      * @var array Validation rules
      */

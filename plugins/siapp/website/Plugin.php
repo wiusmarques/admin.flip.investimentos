@@ -358,6 +358,7 @@ class Plugin extends PluginBase
         $code = md5($text . $section . $description);
         $content = Content::where("code", $code)->first();
 
+        
         if(!$content){
             $content = new Content;
             $content->type = 'text';
@@ -366,10 +367,14 @@ class Plugin extends PluginBase
             $content->section = $section;
             $content->url = url()->full();
             $content->save();
-            return $content->text;
-        }else{
-            return $content->text;
         }
+
+        if ($removeP) {
+            return str_replace(['<p>', '</p>'], '', $content->text);
+        }
+
+        return $content->text;
+        
     }
 
     public function contentImage($url, $section = '', $identifier = '')

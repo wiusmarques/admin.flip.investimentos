@@ -39,10 +39,20 @@ bannerLocation = 2
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-12">
-            <h2 class="title title-lg title-border-bottom color-black mb-30 pb-30">A
-                <span class="color-yellow-200">a</span> {{ "para sua liberdade financeira."|contenttext('SITE | Home', false, "Título da primeeira sessão") }}
+            <h2 class="title title-lg title-border-bottom color-black mb-30 pb-30">
+                {% set title = "para sua liberdade financeira."|contenttext('SITE | Home', true, "Título da primeira sessão") %}
+                {% set title = title|split(' ') %}
+                {{ title[0] }}
+                <span class="color-yellow-200">{{ title[1] }}</span>
+
+                {% for i in 2..title|length - 1 %}
+                    {{ title[i] }}
+                {% endfor %}
+
             </h2>
-            <p class="text text-lg">Nossa equipe possui formação no mercado financeiro, expertise na área de investimentos, 
+            <p class="text text-lg">
+                {{ "Nossa equipe possui"|contenttext('SITE | Home', true, "Título da primeira sessão") }}
+                Nossa equipe possui formação no mercado financeiro, expertise na área de investimentos, 
                 know-haw de mercado, além conhecimentos técnicos práticos para te auxiliar a conquistar seus objetivos 
                 através do aprendizado e da melhor alocação de seus recursos financeiros dentro dos seus objetivos pessoais. 
             </p>

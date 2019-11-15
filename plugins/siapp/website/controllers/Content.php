@@ -48,6 +48,8 @@ class Content extends Controller
     {
         
         $sectionSelected = Session::get('currentWbsiteSection');
+        $content = SiappContent::select('section')->first();
+        $section = $content->section ?? "";
 
         if(!empty($sectionSelected)){
             $section = $sectionSelected;

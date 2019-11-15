@@ -365,6 +365,7 @@ class Plugin extends PluginBase
             $content->text = $text;
             $content->code = $code;
             $content->section = $section;
+            $content->description = $description;
             $content->url = url()->full();
             $content->save();
         }

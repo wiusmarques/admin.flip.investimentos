@@ -55,6 +55,6 @@ class Content extends Controller
             $section = $sectionSelected;
         }
 
-        return $query->Where('section', $section);
+        return $query->Where('section', $section)->orderBy('id', 'desc');
     }
 }

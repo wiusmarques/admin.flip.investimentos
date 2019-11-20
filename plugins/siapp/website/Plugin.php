@@ -348,7 +348,8 @@ class Plugin extends PluginBase
         return [
             'filters' => [
                 'contenttext' => [$this, 'contentText'],
-                'contentimage' => [$this, 'contentImage']
+                'contentimage' => [$this, 'contentImage'],
+                'replace_regex' => [$this, 'replace_regex']
             ],
         ];
     }
@@ -376,6 +377,25 @@ class Plugin extends PluginBase
 
         return $content->text;
         
+    }
+
+    public function replace_regex($str, $search, $replace = null)
+    {
+        // Are they using the standard Twig syntax?
+        if (is_array($search) && $replace === null)
+        {
+            return strtr($str, $search);
+        }
+        // Is this a regular expression?
+        else if (preg_match('/^\/.+\/[a-zA-Z]*$/', $search))
+        {
+            return preg_replace($search, $replace, $str);
+        }
+        else
+        {
+            // Otherwise use str_replace
+            return str_replace($search, $replace, $str);
+        }
     }
 
     public function contentImage($url, $section = '', $identifier = '')

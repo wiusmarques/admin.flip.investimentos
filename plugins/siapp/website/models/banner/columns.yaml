@@ -5,6 +5,8 @@ columns:
     location_id:
         label: Localização
         type: number
+        select: name
+        relation: location
     name:
         label: 'Nome do banner'
         type: text

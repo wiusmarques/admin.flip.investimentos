@@ -2,9 +2,6 @@ columns:
     id:
         label: id
         type: number
-    type:
-        label: Tipo
-        type: text
     text:
         label: Conteúdo
         type: partial

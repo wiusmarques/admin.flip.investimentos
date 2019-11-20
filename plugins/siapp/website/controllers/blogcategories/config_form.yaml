@@ -1,0 +1,10 @@
+name: BlogCategories
+form: $/siapp/website/models/blogcategory/fields.yaml
+modelClass: siapp\Website\Models\BlogCategory
+defaultRedirect: siapp/website/blogcategories
+create:
+    redirect: 'siapp/website/blogcategories/update/:id'
+    redirectClose: siapp/website/blogcategories
+update:
+    redirect: siapp/website/blogcategories
+    redirectClose: siapp/website/blogcategories

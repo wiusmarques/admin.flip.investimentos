@@ -19,7 +19,13 @@ permissions:
         label: 'Permite Gerenciar os banners do site'
     website_content:
         tab: 'siapp.website::lang.siapp.website::lang.siapp.website.permission.website.title'
-        label: 'Permite gerenciar o conteúdo do site'
+        label: 'Permite Gerenciar o conteúdo do site'
+    website_blog_category:
+        tab: 'siapp.website::lang.siapp.website::lang.siapp.website.permission.website.title'
+        label: 'Permite Gerenciar as categorias de Blog'
+    website_post:
+        tab: 'siapp.website::lang.siapp.website::lang.siapp.website.permission.website.title'
+        label: 'Permite Gerenciar a criação de Postagens'
 navigation:
     website:
         label: Website
@@ -52,3 +58,15 @@ navigation:
                 icon: icon-text-width
                 permissions:
                     - website_content
+            blog-post:
+                label: Blog
+                url: siapp/website/posts
+                icon: icon-pencil
+                permissions:
+                    - website_post
+            blog-category:
+                label: 'Categoria de Post'
+                url: siapp/website/blogCategories
+                icon: icon-reorder
+                permissions:
+                    - website_blog_category

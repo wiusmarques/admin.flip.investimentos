@@ -1,0 +1,20 @@
+columns:
+    id:
+        label: id
+        type: number
+    category_id:
+        label: Categoria
+        type: number
+        searchable: true
+        select: name
+        relation: category
+    title:
+        label: Título
+        type: text
+        searchable: true
+    created_at:
+        label: 'Data de criação'
+        type: datetime
+    updated_at:
+        label: 'Data de Atualização'
+        type: datetime

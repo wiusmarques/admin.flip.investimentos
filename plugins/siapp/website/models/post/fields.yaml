@@ -1,0 +1,101 @@
+tabs:
+    fields:
+        status:
+            label: 'Ativo?'
+            span: full
+            default: 1
+            required: 0
+            type: switch
+            tab: 'Informações do Post'
+        title:
+            label: 'Título da postagem'
+            span: auto
+            required: 1
+            type: text
+            tab: 'Informações do Post'
+        category:
+            label: 'Categoria de Post'
+            nameFrom: name
+            descriptionFrom: description
+            span: auto
+            required: 1
+            type: relation
+            comment: 'Caso não haja será necessário criar pelo menos uma categoria no menu "Categoria de Post"'
+            tab: 'Informações do Post'
+        short_description:
+            label: 'Descrição curta'
+            size: small
+            span: full
+            required: 1
+            type: textarea
+            commentAbove: 'Informe uma descrição curta para ser exibida nas chamadas das postaegens'
+            tab: 'Informações do Post'
+        content:
+            label: 'Conteúdo da postagem'
+            size: huge
+            span: full
+            required: 1
+            type: richeditor
+            commentAbove: 'Neste local você poderá informar todo o conteúdo de uma postagem'
+            tab: 'Informações do Post'
+        start_date:
+            label: 'Data de inicio para a postagem'
+            mode: datetime
+            span: auto
+            type: datepicker
+            commentAbove: 'Informe uma data para agendar a publicação da postagem'
+            tab: 'Informações do Post'
+        end_date:
+            label: 'Data final para a postagem'
+            mode: datetime
+            span: auto
+            type: datepicker
+            commentAbove: 'Informe até que data a postagem estará disponível'
+            tab: 'Informações do Post'
+        keywords:
+            label: 'Lista de Tags'
+            mode: string
+            separator: comma
+            customTags: true
+            useKey: false
+            span: full
+            required: 1
+            type: taglist
+            commentAbove: 'Informe uma lista de Tags para referenciar essa postagem'
+            tab: 'Informações do Post'
+        image:
+            label: 'Imagem da capa da postagem'
+            mode: image
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            span: auto
+            required: 1
+            type: fileupload
+            commentAbove: 'Faça o envio da imagem que será exibida na lista de todas as postagens, ela também erá usada para compartilhamento no Facebook'
+            tab: Imagens
+        banner_desktop:
+            label: 'Banner Desktop'
+            mode: image
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            span: full
+            required: 1
+            type: fileupload
+            commentAbove: 'Informe o Banner que será usado na versão desktop da postagem'
+            tab: Imagens
+        banner_mobile:
+            label: 'Banner Mobile'
+            mode: image
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            span: auto
+            required: 1
+            type: fileupload
+            commentAbove: 'Faça o envio do banner da postagem que será usado na versão mobile'
+            tab: Imagens

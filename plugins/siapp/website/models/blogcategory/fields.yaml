@@ -1,0 +1,7 @@
+fields:
+    name:
+        label: 'Categoria de Posts'
+        span: auto
+        required: 1
+        type: text
+        commentAbove: 'Precisamos associar as postagens a pelo menos uma categoria'

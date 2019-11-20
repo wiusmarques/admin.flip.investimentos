@@ -51,3 +51,12 @@
 1.0.18:
     - 'Created table siapp_website_content'
     - builder_table_create_siapp_website_content.php
+1.0.19:
+    - 'Created table siapp_website_blog_categories'
+    - builder_table_create_siapp_website_blog_categories.php
+1.0.20:
+    - 'Created table siapp_website_blog_posts'
+    - builder_table_create_siapp_website_blog_posts.php
+1.0.21:
+    - 'Updated table siapp_website_blog_posts'
+    - builder_table_update_siapp_website_blog_posts.php

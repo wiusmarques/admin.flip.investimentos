@@ -1,0 +1,14 @@
+columns:
+    id:
+        label: id
+        type: number
+    name:
+        label: Nome
+        type: text
+        searchable: false
+    created_at:
+        label: 'Criado Em'
+        type: datetime
+    updated_at:
+        label: 'Atualizado Em'
+        type: datetime

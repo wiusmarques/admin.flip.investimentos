@@ -1,0 +1,10 @@
+name: Posts
+form: $/siapp/website/models/post/fields.yaml
+modelClass: siapp\Website\Models\Post
+defaultRedirect: siapp/website/posts
+create:
+    redirect: 'siapp/website/posts/update/:id'
+    redirectClose: siapp/website/posts
+update:
+    redirect: siapp/website/posts
+    redirectClose: siapp/website/posts

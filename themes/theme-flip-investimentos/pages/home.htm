@@ -13,7 +13,7 @@ bannerLocation = 2
     <div class="swiper-wrapper">
         {% for banner in banners.banners %}
         <div class="swiper-slide">
-            <a href="#">
+            <a {% if banner.url %}href="#"{% if banner.open_new_tab %}target="_blanck"{% endif %}{% endif %}>
                 <div class="bg bg-shadow bg-shadow-inverse banner" 
                     style="background-image: url({{ banner.banner_desktop.getPath() }})">
                 </div>

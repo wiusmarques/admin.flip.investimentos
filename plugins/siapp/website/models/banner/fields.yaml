@@ -56,3 +56,15 @@ tabs:
             type: fileupload
             commentAbove: 'Envie um arquivo com a versão mobile'
             tab: Imagens
+        title:
+            label: 'Título do banner'
+            span: auto
+            type: text
+            comment: '*Nem todas as páginas possuem a função para ter conteúdo de texto.'
+            tab: 'Textos do Banner'
+        subtitle:
+            label: Subtítulo
+            span: auto
+            type: text
+            comment: '*Nem todas as páginas possuem a função para ter conteúdo de texto.'
+            tab: 'Textos do Banner'

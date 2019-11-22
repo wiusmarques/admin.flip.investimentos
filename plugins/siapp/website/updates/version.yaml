@@ -60,3 +60,6 @@
 1.0.21:
     - 'Updated table siapp_website_blog_posts'
     - builder_table_update_siapp_website_blog_posts.php
+1.0.22:
+    - 'Updated table siapp_website_banners'
+    - builder_table_update_siapp_website_banners_6.php

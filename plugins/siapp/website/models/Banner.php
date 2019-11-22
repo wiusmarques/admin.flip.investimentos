@@ -40,9 +40,10 @@ class Banner extends Model
     ];
 
     public $customMessage = [
-        'name.required' => 'O nome do banner é um campo obrigatório',
-        'location.required' => 'A localização do banner é um campo obrigatório',
-        'banner_desktop' => 'A imagem desktop do banner é obrigatória',
-        'banner_mobile' => 'A imagem mobile do banner é obrigatória',
+        'name.required' => 'O nome do banner é um campo obrigatório.',
+        'location.required' => 'A localização do banner é um campo obrigatório.',
+        'banner_desktop.required' => 'A imagem desktop do banner é obrigatória.',
+        'banner_mobile.required' => 'A imagem mobile do banner é obrigatória.',
+        'name.max' => 'O nome deverá ter no máximo 30 caracteres.',
     ];
 }

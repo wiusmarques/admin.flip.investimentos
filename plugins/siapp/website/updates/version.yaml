@@ -63,3 +63,6 @@
 1.0.22:
     - 'Updated table siapp_website_banners'
     - builder_table_update_siapp_website_banners_6.php
+1.0.23:
+    - 'Updated table siapp_website_content'
+    - builder_table_update_siapp_website_content.php

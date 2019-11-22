@@ -33,7 +33,7 @@ class Banner extends Model
      */
     
     public $rules = [
-        'name' => 'required',
+        'name' => 'required|max:30',
         'location' => 'required',
         'banner_desktop' => 'required',
         'banner_mobile' => 'required',

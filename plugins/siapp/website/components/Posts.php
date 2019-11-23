@@ -3,7 +3,7 @@
 use siapp\Website\Models\Post;
 use Cms\Classes\ComponentBase;
 
-class Blog extends ComponentBase
+class Posts extends ComponentBase
 {
     public $banners;
 

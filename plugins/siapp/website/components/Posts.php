@@ -5,7 +5,7 @@ use Cms\Classes\ComponentBase;
 
 class Posts extends ComponentBase
 {
-    public $banners;
+    public $posts;
 
 
     public function componentDetails()
@@ -18,15 +18,7 @@ class Posts extends ComponentBase
 
     public function onRun()
     {
-
-        $this->banners = Banner::all();
-        
-        if ($this->property('bannerLocation')) {
-            $locationID = $this->property('bannerLocation');
-            $this->banners = Banner::where('location_id', $locationID)->get();
-        }
-
-        
+        $this->posts = Post::all();
     }
 
 }

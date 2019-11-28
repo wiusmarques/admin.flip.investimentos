@@ -66,3 +66,6 @@
 1.0.23:
     - 'Updated table siapp_website_content'
     - builder_table_update_siapp_website_content.php
+1.0.24:
+    - 'Updated table siapp_website_blog_posts'
+    - builder_table_update_siapp_website_blog_posts_2.php

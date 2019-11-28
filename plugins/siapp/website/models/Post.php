@@ -53,4 +53,12 @@ class Post extends Model
         'banner_desktop.required' => 'O banner desktop é um campo obrigatório',
         'banner_mobile.required' => 'O banner mobile é um campo obrigatório'
     ];
+
+    public function beforeSave(){
+        
+        $title = str_replace(" ", "-", $this->title);
+        $title =  preg_replace('/[^a-zA-Z-]/', '', $title);
+        $title = strtolower($title);
+        $this->slug = $title;
+    }
 }

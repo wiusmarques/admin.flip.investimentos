@@ -337,6 +337,8 @@ class Plugin extends PluginBase
             Components\Account::class => 'account',
             Components\Banners::class => 'banners',
             Components\Posts::class => 'posts',
+            Components\PostDetails::class => 'postDetails',
+            
         ];
     }
 

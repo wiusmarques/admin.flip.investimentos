@@ -1,6 +1,6 @@
 plugin:
-    name: 'siapp.website::lang.plugin.name'
-    description: 'siapp.website::lang.plugin.description'
+    name: Website
+    description: ''
     author: 'Wiusmarques Moreira dos Reis'
     icon: oc-icon-adjust
     homepage: ''
@@ -35,7 +35,7 @@ navigation:
             - website
         sideMenu:
             website_plans:
-                label: 'siapp.website::lang.siapp.website.menu.plans'
+                label: Planos
                 url: siapp/website/plans
                 icon: icon-diamond
                 permissions:

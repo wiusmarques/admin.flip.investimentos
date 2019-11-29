@@ -1,6 +1,6 @@
 plugin:
-    name: 'siapp.register::lang.plugin.name'
-    description: 'siapp.register::lang.plugin.description'
+    name: Registers
+    description: ''
     author: 'Wiusmarques Moreira dos Reis'
     icon: oc-icon-archive
     homepage: ''

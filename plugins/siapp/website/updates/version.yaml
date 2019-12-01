@@ -69,3 +69,9 @@
 1.0.24:
     - 'Updated table siapp_website_blog_posts'
     - builder_table_update_siapp_website_blog_posts_2.php
+1.0.25:
+    - 'Created table siapp_website_videos'
+    - builder_table_create_siapp_website_videos.php
+1.0.26:
+    - 'Updated table siapp_website_videos'
+    - builder_table_update_siapp_website_videos.php

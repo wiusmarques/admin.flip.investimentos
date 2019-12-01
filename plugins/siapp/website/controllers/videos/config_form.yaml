@@ -1,0 +1,10 @@
+name: Videos
+form: $/siapp/website/models/video/fields.yaml
+modelClass: siapp\Website\Models\Video
+defaultRedirect: siapp/website/videos
+create:
+    redirect: 'siapp/website/videos/update/:id'
+    redirectClose: siapp/website/videos
+update:
+    redirect: siapp/website/videos
+    redirectClose: siapp/website/videos

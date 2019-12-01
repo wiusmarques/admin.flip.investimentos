@@ -1,0 +1,33 @@
+tabs:
+    fields:
+        status:
+            label: 'Ativo?'
+            span: full
+            default: 1
+            type: switch
+            tab: 'Dados Gerais'
+        title:
+            label: 'Título do vídeo'
+            span: auto
+            type: text
+            comment: 'Informe um título para a exibição do vídeo'
+            tab: 'Dados Gerais'
+        key:
+            label: 'ID do vídeo'
+            span: auto
+            required: 1
+            type: text
+            comment: 'Exemplo: no vídeo https://www.youtube.com/watch?v=kM_1zSw_QZk o ID do vídeo é kM_1zSw_QZk'
+            tab: 'Dados Gerais'
+        start_date:
+            label: 'Data de início'
+            mode: datetime
+            span: auto
+            type: datepicker
+            tab: 'Dados Gerais'
+        end_date:
+            label: 'Data final'
+            mode: datetime
+            span: auto
+            type: datepicker
+            tab: 'Dados Gerais'

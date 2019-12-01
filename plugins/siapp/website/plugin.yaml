@@ -26,6 +26,9 @@ permissions:
     website_post:
         tab: 'siapp.website::lang.siapp.website::lang.siapp.website.permission.website.title'
         label: 'Permite Gerenciar a criação de Postagens'
+    website_videos:
+        tab: 'siapp.website::lang.siapp.website::lang.siapp.website.permission.website.title'
+        label: 'Permite Gerenciar os vídeos do site'
 navigation:
     website:
         label: Website
@@ -46,6 +49,12 @@ navigation:
                 icon: icon-image
                 permissions:
                     - website_banners
+            menu-video:
+                label: Videos
+                url: siapp/website/videos
+                icon: icon-video-camera
+                permissions:
+                    - website_videos
             banner-location:
                 label: 'Localização de Banners'
                 url: siapp/website/bannerLocation

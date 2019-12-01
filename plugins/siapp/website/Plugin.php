@@ -338,6 +338,7 @@ class Plugin extends PluginBase
             Components\Banners::class => 'banners',
             Components\Posts::class => 'posts',
             Components\PostDetails::class => 'postDetails',
+            Components\Videos::class => 'videos',
             
         ];
     }

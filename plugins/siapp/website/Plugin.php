@@ -4,6 +4,7 @@
 use System\Classes\PluginBase;
 use RainLab\User\Models\Settings as UserSettings;
 use siapp\Website\Models\ActivationCode;
+use SendGrid\Mail\Mail;
 
 use Route;
 use Auth;
@@ -63,18 +64,18 @@ class Plugin extends PluginBase
                     $errors = $this->validateData($data, $rules);
                     
                     if($errors != ""){
-                        return Response::make($errors, 403);
+                        return Response::make($errors, 400);
                     }
                     
                     $user = Auth::findUserByLogin($data['email']);
 
                     if($user){
                         $errors = [
-                            "Type" => "Erro",
-                            "Data" => "Esta conta já está sendo utilizada.",
+                            "type" => "generic",
+                            "data" => "Esta conta já está sendo utilizada.",
                         ];
 
-                        return Response::make($errors, 403);
+                        return Response::make($errors, 400);
                     }
 
                     $code = md5($data['email'] . date("Y-m-d H:i:s"));
@@ -90,12 +91,12 @@ class Plugin extends PluginBase
 
                     if($user){
 
-                        $url = url('/') . "/email/confirmation/" . $code . "/" . rawurlencode($user->name);
+                        /*$url = url('/') . "/email/confirmation/" . $code . "/" . rawurlencode($user->name);
                         $html = file_get_contents($url);
                         
                         //trace_log($url);
                         
-                        $email = new \SendGrid\Mail\Mail(); 
+                        $email = new Mail(); 
                         $email->setFrom("noreply@flipinvestimentos.com", "Flip Invistimentos");
                         $email->setSubject("Seja bem vindo! Que tal validarmos sua conta de e-mail?");
                         $email->addTo($user->email, $user->name);
@@ -105,10 +106,10 @@ class Plugin extends PluginBase
 
                         //return $key;
                         
-                        $sendgrid = new \SendGrid($data->key);
+                        $sendgrid = new \SendGrid($data->key);*/
 
                         try {
-                            $sendgrid->send($email);
+                            /*$sendgrid->send($email);
                             
                             $objActivation = new ActivationCode();
                             $objActivation->user_id = $user->id;
@@ -117,9 +118,13 @@ class Plugin extends PluginBase
                             $objActivation->valid_at = date('Y-m-d H:i:s', strtotime(' + 30 day'));
                             $objActivation->hash = $code;
 
-                            $objActivation->save();
+                            $objActivation->save();*/
 
-                            return ['status' => 'success', 'message' => 'O código foi enviado para ' . $user->email];
+                            $message = [
+                                'status' => 'Sucesso', 
+                                'message' => 'Sua conta foi criada e o link de ativação foi enviado para o email ' . $user->email . "."
+                            ];
+                            return Response::make($message, 200);
                         } catch (Exception $e) {
                             trace_log("Erro ao tentar enviar o e-mail para: " . $user->email . " entre em contato com o administrador do sistema. \nMensagem de Erro: " . $e->getMessage());
                         }
@@ -167,8 +172,8 @@ class Plugin extends PluginBase
 
                     if(!$user){
                         $errors = [
-                            "Type" => "Erro",
-                            "Data" => "Essa conta não foi encontrada em nosso sistema",
+                            "type" => "Erro",
+                            "data" => "Essa conta não foi encontrada em nosso sistema",
                         ];
 
                         return Response::make($errors, 403);
@@ -214,7 +219,7 @@ class Plugin extends PluginBase
 
                             $objActivation->save();
 
-                            return ['status' => 'success', 'message' => 'O código foi enviado para ' . $user->email];
+                            return ['status' => 'Sucesso', 'message' => 'O código foi enviado para ' . $user->email];
                         } catch (Exception $e) {
                             trace_log("Erro ao tentar enviar o e-mail para: " . $user->email . " entre em contato com o administrador do sistema. \nMensagem de Erro: " . $e->getMessage());
                         }
@@ -287,12 +292,12 @@ class Plugin extends PluginBase
                         try {
                             $sendgrid->send($email);
 
-                            return ['status' => 'success', 'message' => 'O código foi enviado para ' . $user->email];
+                            return ['status' => 'Sucesso', 'message' => 'O código foi enviado para ' . $user->email];
                         } catch (Exception $e) {
                             trace_log("Erro ao tentar enviar o e-mail para: " . $user->email . " entre em contato com o administrador do sistema. \nMensagem de Erro: " . $e->getMessage());
                         }
                     }else{
-                        return ['status' => 'success', 'message' => 'O código foi enviado para ' . $user->email];
+                        return ['status' => 'Sucesso', 'message' => 'O código foi enviado para ' . $user->email];
                     }
                     
                 });
@@ -318,8 +323,8 @@ class Plugin extends PluginBase
             $messages = $validator->messages();
 
             $response = [
-                "Type" => "Erro",
-                "Data" => $messages->messages()
+                "type" => "Erro",
+                "data" => $messages->messages()
             ];
             
             return $response;

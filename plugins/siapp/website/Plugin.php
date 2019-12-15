@@ -95,7 +95,7 @@ class Plugin extends PluginBase
                         
                         //trace_log($url);
                         
-                        $email = new \SendGrid\Mail\Mail();
+                        $email = new \SendGrid\Mail();
                         $email->setFrom("noreply@flipinvestimentos.com", "Flip Invistimentos");
                         $email->setSubject("Seja bem vindo! Que tal validarmos sua conta de e-mail?");
                         $email->addTo($user->email, $user->name);
@@ -194,7 +194,7 @@ class Plugin extends PluginBase
                         
                         //trace_log($url);
                         
-                        $email = new \SendGrid\Mail\Mail(); 
+                        $email = new \SendGrid\Mail(); 
                         $email->setFrom("noreply@flipinvestimentos.com", "Flip Invistimentos");
                         $email->setSubject("Alteração de Senha - Flip Investimentos");
                         $email->addTo($user->email, $user->name);
@@ -276,7 +276,7 @@ class Plugin extends PluginBase
                         
                         //trace_log($url);
                         
-                        $email = new \SendGrid\Mail\Mail(); 
+                        $email = new \SendGrid\Mail(); 
                         $email->setFrom("noreply@flipinvestimentos.com", "Flip Invistimentos");
                         $email->setSubject("Seja bem vindo! Que tal validarmos sua conta de e-mail?");
                         $email->addTo($user->email, $user->name);

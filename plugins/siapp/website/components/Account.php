@@ -11,7 +11,7 @@ use siapp\Website\Models\ResetPasswordCode;
 class Account extends ComponentBase
 {
 
-    public $active, $code;
+    public $code, $response;
 
     public function componentDetails()
     {
@@ -38,6 +38,12 @@ class Account extends ComponentBase
             $user->reset_password_code = $this->code;
 
             $user->save();
+            
+            $this->response = [
+                "status" => true,
+                "message" => "Conta ativada com sucesso!"
+            ];
+            
             ActivationCode::where('hash', $this->code)->where('valid_at', '>=', $now)->delete();
 
 

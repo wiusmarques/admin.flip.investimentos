@@ -121,7 +121,7 @@ class Plugin extends PluginBase
 
                             $message = [
                                 'status' => 'Sucesso', 
-                                'message' => 'Sua conta foi criada e o link de ativação foi enviado para o email ' . $user->email . "."
+                                'message' => 'Sua conta foi criada e o link de ativação foi enviado para o email ' . $user->email . ". Não se esqueça de conferir o lixo eletrônico!"
                             ];
                             return Response::make($message, 200);
                         } catch (Exception $e) {

@@ -4,7 +4,6 @@
 use System\Classes\PluginBase;
 use RainLab\User\Models\Settings as UserSettings;
 use siapp\Website\Models\ActivationCode;
-use SendGrid\Mail\Mail;
 
 use Route;
 use Auth;

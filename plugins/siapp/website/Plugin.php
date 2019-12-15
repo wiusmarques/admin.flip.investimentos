@@ -91,7 +91,7 @@ class Plugin extends PluginBase
 
                     if($user){
 
-                        /*$url = url('/') . "/email/confirmation/" . $code . "/" . rawurlencode($user->name);
+                        $url = url('/') . "/email/confirmation/" . $code . "/" . rawurlencode($user->name);
                         $html = file_get_contents($url);
                         
                         //trace_log($url);
@@ -106,10 +106,10 @@ class Plugin extends PluginBase
 
                         //return $key;
                         
-                        $sendgrid = new \SendGrid($data->key);*/
+                        $sendgrid = new \SendGrid($data->key);
 
                         try {
-                            /*$sendgrid->send($email);
+                            $sendgrid->send($email);
                             
                             $objActivation = new ActivationCode();
                             $objActivation->user_id = $user->id;
@@ -118,7 +118,7 @@ class Plugin extends PluginBase
                             $objActivation->valid_at = date('Y-m-d H:i:s', strtotime(' + 30 day'));
                             $objActivation->hash = $code;
 
-                            $objActivation->save();*/
+                            $objActivation->save();
 
                             $message = [
                                 'status' => 'Sucesso', 

@@ -11,7 +11,7 @@ use siapp\Website\Models\ResetPasswordCode;
 class Account extends ComponentBase
 {
 
-    public $code, $response;
+    public $code, $response, $user;
 
     public function componentDetails()
     {
@@ -24,6 +24,14 @@ class Account extends ComponentBase
     public function onRun(){
         
         $this->code = $this->property('code');
+        
+        /*$user = Auth::authenticate([
+            'login' => 'wiusmarques.dev@outlook.com',
+            'password' => '12345678'
+        ]);*/
+        
+        $this->user = Auth::getUser();
+
         $now = date("Y-m-d H:i:s");
         $registerActivation = ActivationCode::where('hash', $this->code)->where('valid_at', '>=', $now)->first();
 
@@ -43,7 +51,7 @@ class Account extends ComponentBase
                 "status" => true,
                 "message" => "Conta ativada com sucesso!"
             ];
-            
+
             ActivationCode::where('hash', $this->code)->where('valid_at', '>=', $now)->delete();
 
 
